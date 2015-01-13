@@ -13,9 +13,11 @@ using Moq.Protected;
 using Xunit;
 
 #if !SILVERLIGHT
+#if !__ANDROID__
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Web.UI.HtmlControls;
+#endif
 using System.Threading;
 #endif
 #if !Net3x && !SILVERLIGHT
@@ -903,7 +905,7 @@ namespace Moq.Tests.Regressions
 
         #region #160
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
         public class _160
         {
             [Fact]
@@ -1751,7 +1753,7 @@ namespace Moq.Tests.Regressions
 
         #region #326
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 
         public class _326
         {
@@ -1825,7 +1827,7 @@ namespace Moq.Tests.Regressions
 
         #region Silverlight excluded
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 
         #region #250
 

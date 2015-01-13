@@ -47,7 +47,7 @@ using Moq.Proxy;
 using Moq.Language;
 using System.Reflection;
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 using System.CodeDom;
 using Microsoft.CSharp;
 #endif
@@ -124,7 +124,7 @@ namespace Moq
 
 			var typeName = typeof (T).FullName;
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 			if (typeof (T).IsGenericType)
 			{
 				using (var provider = new CSharpCodeProvider())

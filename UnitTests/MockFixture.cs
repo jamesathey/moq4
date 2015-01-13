@@ -44,7 +44,7 @@ namespace Moq.Tests
 			Assert.Contains("mock", mock.ToString().ToLower());
 		}
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 		[Fact]
 		public void HasADefaultNameThatIncludesItsGenericParameters()
 		{
