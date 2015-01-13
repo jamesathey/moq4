@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CBCAC91-C627-48AD-8BFE-F7E0E0B689D7}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Moq.Tests</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Moq.Android.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\Moq.snk</AssemblyOriginatorKeyFile>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DESKTOP</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v3.5' ">$(DefineConstants);NET3x</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;DESKTOP</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v3.5' ">$(DefineConstants);NET3x</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit.abstractions">
+      <HintPath>..\packages\xunit.abstractions.2.0.0-beta5-build2785\lib\portable-net45+aspnetcore50+win+wpa81+wp80+monotouch+monoandroid\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core">
+      <HintPath>..\packages\xunit.core.2.0.0-beta5-build2785\lib\portable-net45+aspnetcore50+win+wpa81+wp80+monotouch+monoandroid\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert">
+      <HintPath>..\packages\xunit.assert.2.0.0-beta5-build2785\lib\portable-net45+aspnetcore50+win+wpa81+wp80+monoandroid+monotouch10\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution">
+      <HintPath>..\packages\xunit.execution.2.0.0-beta5-build2785\lib\monoandroid\xunit.execution.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.utility">
+      <HintPath>..\packages\xunit.runner.utility.2.0.0-beta5-build2785\lib\monoandroid\xunit.runner.utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.19.1.0\lib\MonoAndroid10\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.1.3.0.6292\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsViewGroup">
+      <HintPath>..\packages\Xamarin.Forms.1.3.0.6292\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.Android">
+      <HintPath>..\packages\Xamarin.Forms.1.3.0.6292\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.1.3.0.6292\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.runner.android">
+      <HintPath>..\packages\xunit.runner.xamarin.0.99.6-beta5\lib\MonoAndroid\xunit.runner.android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\UnitTests\AsInterfaceFixture.cs">
+      <Link>AsInterfaceFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ConditionalSetupFixture.cs">
+      <Link>ConditionalSetupFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\CustomMatcherFixture.cs">
+      <Link>CustomMatcherFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ExtensionsFixture.cs">
+      <Link>ExtensionsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ReturnsExtensionsFixture.cs">
+      <Link>ReturnsExtensionsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Linq\MockRepositoryQuerying.cs">
+      <Link>Linq\MockRepositoryQuerying.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockedDelegatesFixture.cs">
+      <Link>MockedDelegatesFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockSequenceFixture.cs">
+      <Link>MockSequenceFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Linq\SupportedQuerying.cs">
+      <Link>Linq\SupportedQuerying.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Linq\UnsupportedQuerying.cs">
+      <Link>Linq\UnsupportedQuerying.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\PropertiesFixture.cs">
+      <Link>PropertiesFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Linq\QueryableMocksFixture.cs">
+      <Link>Linq\QueryableMocksFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\RecursiveMocksFixture.cs">
+      <Link>RecursiveMocksFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\CallbacksFixture.cs">
+      <Link>CallbacksFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\EmptyDefaultValueProviderFixture.cs">
+      <Link>EmptyDefaultValueProviderFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MatcherAttributeFixture.cs">
+      <Link>MatcherAttributeFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Demo.cs">
+      <Link>Demo.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ExpressionExtensionsFixture.cs">
+      <Link>ExpressionExtensionsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ExtensibilityFixture.cs">
+      <Link>ExtensibilityFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\AdvancedMatcherAttributeFixture.cs">
+      <Link>AdvancedMatcherAttributeFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MatchersFixture.cs">
+      <Link>MatchersFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Matchers\AnyMatcherFixture.cs">
+      <Link>Matchers\AnyMatcherFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockBehaviorFixture.cs">
+      <Link>MockBehaviorFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockDefaultValueProviderFixture.cs">
+      <Link>MockDefaultValueProviderFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockedFixture.cs">
+      <Link>MockedFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockedEventsFixture.cs">
+      <Link>MockedEventsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockRepositoryFixture.cs">
+      <Link>MockRepositoryFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\MockFixture.cs">
+      <Link>MockFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\OccurrenceFixture.cs">
+      <Link>OccurrenceFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\OutRefFixture.cs">
+      <Link>OutRefFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ProtectedMockFixture.cs">
+      <Link>ProtectedMockFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Regressions\IssueReportsFixture.cs">
+      <Link>Regressions\IssueReportsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\Regressions\StreamFixture.cs">
+      <Link>Regressions\StreamFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\SequenceExtensionsFixture.cs">
+      <Link>SequenceExtensionsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\ReturnsFixture.cs">
+      <Link>ReturnsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\StubExtensionsFixture.cs">
+      <Link>StubExtensionsFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\TimesFixture.cs">
+      <Link>TimesFixture.cs</Link>
+    </Compile>
+    <Compile Include="..\UnitTests\VerifyFixture.cs">
+      <Link>VerifyFixture.cs</Link>
+    </Compile>
+    <Compile Include="MainActivity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Moq.snk">
+      <Link>Moq.snk</Link>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Source.Android\Moq.Android.csproj">
+      <Project>{C66312FD-7DA3-4AB2-9C15-C479586125C9}</Project>
+      <Name>Moq.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!--<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />-->
+  <UsingTask AssemblyFile="$(MSBuildProjectPath)..\Lib\xUnit\xunit.runner.msbuild.dll" TaskName="Xunit.Runner.MSBuild.xunit" />
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+    <!-- Run xUnit tests -->
+    <Copy SourceFiles="$(MSBuildProjectPath)..\Lib\xUnit\xunit.dll" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+    <xunit Assembly="@(MainAssembly)" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.0.0-beta5-build2785\build\monoandroid\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.0.0-beta5-build2785\build\monoandroid\xunit.core.props')" />
+  <Import Project="..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\xunit.runner.xamarin.0.99.6-beta5\build\MonoAndroid\xunit.runner.xamarin.targets" Condition="Exists('..\packages\xunit.runner.xamarin.0.99.6-beta5\build\MonoAndroid\xunit.runner.xamarin.targets')" />
+</Project>

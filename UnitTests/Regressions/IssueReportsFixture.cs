@@ -1677,7 +1677,7 @@ namespace Moq.Tests.Regressions
 
         #region #273
 
-#if !SILVERLIGHT
+#if !SILVERLIGHT && !__ANDROID__
 
         public class _273
         {

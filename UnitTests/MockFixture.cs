@@ -837,11 +837,13 @@ namespace Moq.Tests
 			Assert.Equal(3, mock.Object.Generic<string>());
 		}
 
+		#if !__ANDROID__
 		[Fact]
 		public void CanCreateMockOfInternalInterface()
 		{
 			Assert.NotNull(new Mock<ClassLibrary1.IFooInternal>().Object);
 		}
+		#endif
 
 		/// <summary>
 		/// Mostly testing that these casts compile, but also that there are no runtime failures.
