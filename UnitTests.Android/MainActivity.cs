@@ -12,7 +12,7 @@ using Xunit.Runners.UI;
 
 namespace Moq.Tests
 {
-    [Activity(Label = "xUnit Android Runner", MainLauncher = true)]
+	[Activity(Label = "Moq.Tests", MainLauncher = true, Theme= "@android:style/Theme.Material.Light")]
     public class MainActivity : RunnerActivity
     {
 
@@ -40,4 +40,3 @@ namespace Moq.Tests
         }
     }
 }
-
