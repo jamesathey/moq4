@@ -340,8 +340,8 @@ namespace Moq.Tests
 			var mex = Assert.Throws<MockException>(() =>
 				mock.Verify(foo => foo.Submit(), Times.AtMostOnce()));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock at most once, but was 2 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock at most once, but was 2 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -358,8 +358,8 @@ namespace Moq.Tests
 			var mex = Assert.Throws<MockException>(() =>
 				mock.Verify(foo => foo.Submit(), Times.AtMost(2)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock at most 2 times, but was 3 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock at most 2 times, but was 3 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -373,8 +373,8 @@ namespace Moq.Tests
 
 			var mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.Never()));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock should never have been performed, but was 1 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock should never have been performed, but was 1 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -384,8 +384,8 @@ namespace Moq.Tests
 
 			var mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.AtLeastOnce()));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock at least once, but was never performed: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock at least once, but was never performed: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -402,8 +402,7 @@ namespace Moq.Tests
 
 			var mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.AtLeast(3)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock at least 3 times, but was 2 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains("Expected invocation on the mock at least 3 times, but was 2 times: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -422,8 +421,8 @@ namespace Moq.Tests
 
 			var mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.Exactly(5)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock exactly 5 times, but was 4 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock exactly 5 times, but was 4 times: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -433,8 +432,8 @@ namespace Moq.Tests
 
 			mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.Exactly(5)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock exactly 5 times, but was 6 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock exactly 5 times, but was 6 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -444,8 +443,8 @@ namespace Moq.Tests
 
 			var mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.Once()));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock once, but was 0 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock once, but was 0 times: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -455,8 +454,8 @@ namespace Moq.Tests
 
 			mex = Assert.Throws<MockException>(() => mock.Verify(foo => foo.Submit(), Times.Once()));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock once, but was 2 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock once, but was 2 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -469,8 +468,8 @@ namespace Moq.Tests
 			var mex = Assert.Throws<MockException>(
 				() => mock.Verify(foo => foo.Submit(), Times.Between(1, 4, Range.Exclusive)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock between 1 and 4 times (Exclusive), but was 1 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock between 1 and 4 times (Exclusive), but was 1 times: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -485,8 +484,8 @@ namespace Moq.Tests
 			mex = Assert.Throws<MockException>(
 				() => mock.Verify(foo => foo.Submit(), Times.Between(1, 4, Range.Exclusive)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock between 1 and 4 times (Exclusive), but was 4 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock between 1 and 4 times (Exclusive), but was 4 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -498,8 +497,8 @@ namespace Moq.Tests
 			var mex = Assert.Throws<MockException>(
 				() => mock.Verify(foo => foo.Submit(), Times.Between(2, 4, Range.Inclusive)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock between 2 and 4 times (Inclusive), but was 1 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock between 2 and 4 times (Inclusive), but was 1 times: foo => foo.Submit()"));
 
 			mock.Object.Submit();
 
@@ -515,8 +514,8 @@ namespace Moq.Tests
 			mex = Assert.Throws<MockException>(
 				() => mock.Verify(foo => foo.Submit(), Times.Between(2, 4, Range.Inclusive)));
 			Assert.Equal(MockException.ExceptionReason.VerificationFailed, mex.Reason);
-			Assert.True(mex.Message.StartsWith(
-				Environment.NewLine + "Expected invocation on the mock between 2 and 4 times (Inclusive), but was 5 times: foo => foo.Submit()"));
+			Assert.True(mex.Message.Contains(
+				 "Expected invocation on the mock between 2 and 4 times (Inclusive), but was 5 times: foo => foo.Submit()"));
 		}
 
 		[Fact]
@@ -867,7 +866,7 @@ namespace Moq.Tests
 
 			MockException mex = Assert.Throws<MockException>(() => mock.Verify(f => f.Execute("pong")));
 
-			Assert.Contains(Environment.NewLine + "No invocations performed.", mex.Message);
+			Assert.Contains( "No invocations performed.", mex.Message);
 		}
 
         [Fact]
